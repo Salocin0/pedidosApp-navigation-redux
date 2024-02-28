@@ -1,8 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
-import counterReducer from '../features/couter/counterSlice'
+import counterReducer from '../features/counter/counterSlice'
+import carritoReducer from '../features/carrito/carritoSlice'
+
+
 
 export default configureStore({
   reducer: {
-    counter: counterReducer
+    counter: counterReducer,
+    carrito: carritoReducer,
   }
 })

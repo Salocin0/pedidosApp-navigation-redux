@@ -1,5 +1,6 @@
 export const Colors = {
     GrisClaro:"#F7F7FF",
+    GrisClaroPeroNoTanClaro:"#cccccc",
     Azul:"#028AFF",
     Celeste:"#0275d8",
     Naranja:"#f0ad4e",

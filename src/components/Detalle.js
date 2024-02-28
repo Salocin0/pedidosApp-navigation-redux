@@ -2,14 +2,18 @@ import React from "react";
 import { Text, View, TouchableOpacity, Image } from "react-native";
 import { useRoute } from "@react-navigation/native";
 import styles from "./../Styles/Styles";
-import { Counter } from "../features/couter/Counter";
+import { Counter } from "../features/counter/Counter";
+import { useSelector, useDispatch } from 'react-redux';
+import { addProduct,removeProduct,removeAllProducts } from "../features/carrito/carritoSlice";
 
 const Detalle = () => {
   const route = useRoute();
   const producto = route.params.producto;
+  const dispatch = useDispatch();
+  const count = useSelector(state => state.counter.value);
 
-  const handleCompra = () => {
-    console.log("Producto comprado:", producto);
+  const handleAddProduct = () => {
+    dispatch(addProduct({ ...producto, cantidad: count }));
   };
 
   return (
@@ -26,7 +30,7 @@ const Detalle = () => {
           <Counter />
         </View>
       </View>
-      <TouchableOpacity style={styles.botonCompra} onPress={handleCompra}>
+      <TouchableOpacity style={styles.botonCompra} onPress={handleAddProduct}>
         <Text style={styles.textoBoton}>Comprar</Text>
       </TouchableOpacity>
     </View>
